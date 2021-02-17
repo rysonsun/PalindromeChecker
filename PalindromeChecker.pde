@@ -17,62 +17,43 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  String sWord = onlyLetters(word);
-  sWord= noCapitals(sWord);
-  sWord= noSpaces(sWord);
-  if (sWord.equals(reverse(sWord)))
+  String xWord= onlyLetters(word);
+  String yWord= noCapitals(xWord);
+  String zWord= reverse(yWord);
+  if (onlyLetters(yWord).equals(zWord))
   return true;
   else
   //your code here
   return false;
 }
-public String reverse(String str)
+public String reverse(String word)
 {
-    String sNew = new String();
+    String sWord = new String();
     //your code here
-  String s = "";
-  if(str.length()!=0){
-  for(int i= str.length();i>0;i--){
-  s = s+str.charAt(i-1);
+  for(int i= word.length()-1;i>=0;i--){
+  sWord = sWord+word.charAt(i);
     }
+    return sWord;
   }
-    return sNew;
+ 
+ public String noCapitals(String word){
+  return word .toLowerCase();
 }
- public String noCapitals(String sWord){
-  return sWord .toLowerCase();
-}
-
-  public String noSpaces(String sWord){
-  if (sWord.length()==0){
-    return "";
-  }
-  String ans="";
-  for (int i=0; i<sWord.length();i++){
-  if (sWord.charAt(i)!=' '){
-    ans+=sWord.charAt(i);
-      }
-    }
-    return ans;
-  }
-
-  public int numLetters(String sString){
+  public int numLetters(String word){
   int count= 0;
-  for(int i=0; i<sString.length();i++){
-  if(Character.isLetter(sString.charAt(i)) == true){
+  for(int i=0; i<word.length();i++){
+  if(Character.isLetter(word.charAt(i)) == true){
     count++;
     }
   }
   return count;
 }
-  public String onlyLetters(String sString){
+  public String onlyLetters(String word){
   String x= "";
-  for(int i= 0;i< sString.length();i++){
-    if(Character.isLetter(sString.charAt(i))){
-      x=x+sString.charAt(i);
+  for(int i= 0;i< word.length();i++){
+    if(Character.isLetter(word.charAt(i))==true){
+      x=x+word.charAt(i);
     }
   }
   return x;
 }
-
-
-
